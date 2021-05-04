@@ -20,7 +20,7 @@ exports.sendNotification = functions.firestore
     admin
       .firestore()
       .collection('users')
-      .where('id', '==', idTo)
+      .where('user_id', '==', idTo)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(userTo => {
@@ -30,7 +30,7 @@ exports.sendNotification = functions.firestore
             admin
               .firestore()
               .collection('users')
-              .where('id', '==', idFrom)
+              .where('user_id', '==', idFrom)
               .get()
               .then(querySnapshot2 => {
                 querySnapshot2.forEach(userFrom => {
